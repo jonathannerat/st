@@ -1,15 +1,18 @@
 /* See LICENSE file for copyright and license details. */
 
+#include "theme.h"
+
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = THEME_FONT;
 /* Spare fonts */
 static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+#ifdef EXTRA_FONTS
+	EXTRA_FONTS
+#endif
 };
 static int borderpx = 2;
 
@@ -39,7 +42,7 @@ static float chscale = 1.0;
  *
  * More advanced example: L" `'\"()[]{}"
  */
-wchar_t *worddelimiters = L" ";
+wchar_t *worddelimiters = L" `'\"()[]{}";
 
 /* selection timeouts (in milliseconds) */
 static unsigned int doubleclicktimeout = 300;
@@ -113,30 +116,30 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	THEME_BLACK,
+	THEME_RED,
+	THEME_GREEN,
+	THEME_YELLOW,
+	THEME_BLUE,
+	THEME_MAGENTA,
+	THEME_CYAN,
+	THEME_WHITE,
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	THEME_BRIGHTBLACK,
+	THEME_BRIGHTRED,
+	THEME_BRIGHTGREEN,
+	THEME_BRIGHTYELLOW,
+	THEME_BRIGHTBLUE,
+	THEME_BRIGHTMAGENTA,
+	THEME_BRIGHTCYAN,
+	THEME_BRIGHTWHITE,
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+	THEME_FOREGROUND,
+	THEME_BACKGROUND
 };
 
 

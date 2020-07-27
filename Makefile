@@ -18,10 +18,13 @@ options:
 config.h:
 	cp config.def.h config.h
 
+theme.h:
+	cp theme.def.h $@
+
 .c.o:
 	$(CC) $(STCFLAGS) -c $<
 
-st.o: config.h st.h win.h
+st.o: config.h st.h win.h theme.h
 x.o: arg.h config.h st.h win.h
 boxdraw.o: config.h st.h boxdraw_data.h
 
