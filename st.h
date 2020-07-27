@@ -82,6 +82,7 @@ void die(const char *, ...);
 void redraw(void);
 void draw(void);
 
+void iso14755(const Arg *);
 void externalpipe(const Arg *);
 void printscreen(const Arg *);
 void printsel(const Arg *);
@@ -134,4 +135,5 @@ extern char *termname;
 extern unsigned int tabspaces;
 extern unsigned int defaultfg;
 extern unsigned int defaultbg;
+extern char *iso14755_cmd;
 extern const int boxdraw, boxdraw_bold, boxdraw_braille;
